@@ -18,7 +18,7 @@ Parce que chez NaviBus, nous croyons en une communauté consciente et informée,
 
 ## API
 
-Visualisations disponible [via le lien](   JUSTE   ICI   UN   LIEN   )
+Visualisations disponible [via le lien](https://github.com/papillonlut/NaviBus/blob/main/api/divia.json)
 
 ### Les arrêts
 
