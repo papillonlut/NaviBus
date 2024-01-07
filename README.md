@@ -1,5 +1,11 @@
 # NaviBus
 
+### À propos du projet
+
+NaviBus est le fruit d'une blague, qui a évolué en un projet concret.<br>
+L'idée originale était de créer un site en 60 jours, mais compte tenu des cours, nous avons relever le défi en seulement 30 jours. Mission accomplie ✅<br>
+Malheureusement suite à [l'article "L2242-10"](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032284434) en vigeur depuis 2016 nous n'avons pu le mettre en oeuvre entièrement.
+
 ### Description
 
 Nous sommes NaviBus, bien plus qu'un simple site, nous sommes une plateforme dédiée à la prévention dans le domaine des transports en commun en France. En revanche, le site ne possédera en aucun cas le système de signalement sur la voirie et est donc inutilisable, mais restera en tant que souvenir.
