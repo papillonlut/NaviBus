@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="theme-color" content="#2e3031">
+    <meta name="title" content="NaviBus">
+    <meta name="description" content="NaviBus permet de fluidifier le trafic des transports en commun en vous indiquant les soucis sur le réseau">
+    <link rel="shortcut icon" type="image/png" href="\img\1.png">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://papillonlut.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NaviBus">
+    <meta property="og:description" content="NaviBus permet de fluidifier le trafic des transports en commun en vous indiquant les soucis sur le réseau">
+    <meta property="og:image" content="https://papillonlut.netlify.app/img/1.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="papillonlut.netlify.app">
+    <meta property="twitter:url" content="https://papillonlut.netlify.app/">
+    <meta name="twitter:title" content="NaviBus">
+    <meta name="twitter:description" content="NaviBus permet de fluidifier le trafic des transports en commun en vous indiquant les soucis sur le réseau">
+    <meta name="twitter:image" content="https://papillonlut.netlify.app/img/1.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="term.css">
+    <link rel="stylesheet" href="pop.css">
+    <title>NaviBus</title>
+</head>
+<body>
+    <header>
+        <a><img class="logo-header" src="/img/1.png" alt="Logo NaviBus"></a>
+        <h1>NaviBus - Gardez le contrôle avec NaviBus</h1>
+    </header>
+
+    <select id="menuDeroulant" onchange="rediriger()">
+        <option value="" disabled selected>Veuillez choisir votre ville</option>
+        <option value="ajouterville">Ajoute ta ville</option>
+        <!-- Liste des villes prédéfinies -->
+        <script>
+            var villes = ["Dijon"];
+    
+            for (var i = 0; i < villes.length; i++) {
+                var villeEnMinuscules = villes[i].toLowerCase();
+                document.write('<option value="ville/'+villeEnMinuscules+'">'+villes[i]+'</option>');
+            }
+        </script>
+        <option disabled> </option>
+        <option value="article">Article</option>
+        <option value="legal">Mentions-Légales</option>
+        <option value="api">API</option>
+    </select>
+
+    <div class="overlay">
+        <div class="modal">
+            <div class="modal-container">
+                <div class="modal-container-header">
+                    <span class="modal-container-title">
+                        <svg aria-hidden="true" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14 9V4H5v16h6.056c.328.417.724.785 1.18 1.085l1.39.915H3.993A.993.993 0 0 1 3 21.008V2.992C3 2.455 3.449 2 4.002 2h10.995L21 8v1h-7zm-2 2h9v5.949c0 .99-.501 1.916-1.336 2.465L16.5 21.498l-3.164-2.084A2.953 2.953 0 0 1 12 16.95V11zm2 5.949c0 .316.162.614.436.795l2.064 1.36 2.064-1.36a.954.954 0 0 0 .436-.795V13h-5v3.949z" fill="currentColor"></path>
+                        </svg>
+                        Conditions d'Utilisation
+                    </span>
+                </div>
+                <section class="modal-container-body rtf">
+                    <span>Conditions d'Utilisation</span>
+                    <p>En utilisant ce site, vous acceptez pleinement et sans réserve les conditions d'utilisation suivantes. Si vous n'acceptez pas ces conditions, le site vous seras refusez.</p>
+        
+                    <span>Contenu du Site</span>
+                    <p>Le contenu de ce site est fourni à des fins de prévention. Le propriétaire du site se réserve le droit de modifier, supprimer ou ajouter du contenu sans préavis.</p>
+        
+                    <span>Propriété Intellectuelle</span>
+                    <p>Tout le contenu présent sur ce site, y compris mais sans s'y limiter, les textes, images, vidéos, et logos, est la propriété intellectuelle du propriétaire du site, sauf indication contraire.</p>
+                    <p>Aucun élément du site ne peut être reproduit, distribué, ou utilisé à des fins commerciales sans l'autorisation écrite préalable du propriétaire.</p>
+        
+                    <span>Utilisation Responsable</span>
+                    <p>Les utilisateurs s'engagent à utiliser ce site de manière responsable et à respecter les lois et règlements en vigueur.</p>
+                    <p>Il est interdit de publier du contenu diffamatoire, offensant, illégal, ou contraire à l'éthique sur ce site.</p>
+                    
+                    <span>Liens Externes</span>
+                    <p>Ce site peut contenir des liens vers des sites externes. Le propriétaire du site n'assume aucune responsabilité quant au contenu de ces sites et ne garantit pas leur exactitude ou leur pertinence.</p>
+                    
+                    <span>Collecte de Données</span>
+                    <p>Lorsque cela est applicable, la collecte et l'utilisation des données personnelles sont régies par notre politique de confidentialité. En utilisant ce site, vous consentez à cette collecte et utilisation.</p>
+                    <p>Heureusement notre site ne collecte aucune donnée.</p>
+                    
+                    <span>Responsabilité</span>
+                    <p>Le propriétaire du site décline toute responsabilité pour tout dommage résultant de l'utilisation de ce site. Les utilisateurs utilisent ce site à leurs propres risques.</p>
+                    
+                    <span>Modification des Conditions</span>
+                    <p>Le propriétaire se réserve le droit de modifier ces conditions d'utilisation à tout moment. Les utilisateurs sont invités à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications.</p>
+                    
+                    <span>Contact</span>
+                    <p>En utilisant ce site, vous acceptez ces conditions d'utilisation. Si vous avez des questions ou des préoccupations, veuillez nous contacter à contact.papillonlut@gmail.com</p>
+        
+                </section>
+                <div class="modal-container-footer">
+                    <button class="button is-ghost" id="quitterSite">Refuser</button>
+                    <button class="button is-primary" onclick="document.querySelector('.modal').style.display = 'none'; document.querySelector('.overlay').style.display = 'none'">Accepter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 id="monTitre">Je suis </h1>
+    
+    <script>
+        var monTitre = document.getElementById("monTitre");
+
+        var mots = ["disponible à Dijon", "Dijonnais", "gratuit", "fiable", "créer avec amour"];
+        var index = 0;
+
+        function mettreAJourTitre() {
+            var motActuel = mots[index];
+            var longueurMot = motActuel.length;
+
+            // Afficher progressivement chaque lettre à intervalles réguliers
+            for (var i = 0; i < longueurMot; i++) {
+                setTimeout(function (index) {
+                    monTitre.innerHTML = "Je suis " + motActuel.substring(0, index + 1);
+                }, i * 100, i);
+            }
+
+            index = (index + 1) % mots.length;
+        }
+
+        setInterval(mettreAJourTitre, 3000);
+    </script>
+	
+	<div class="descript-site">
+		<div class="solo-descript-site">
+			<div class="image-container">
+				<img src="/img/1.png">
+			</div>
+			<div class="text-container">
+				<p id="info-page">Salut à tous ! Nous sommes NaviBus, bien plus qu'un simple site, nous sommes une plateforme dédiée à la prévention dans le domaine des transports en commun en France.</p>
+                <script>
+                    document.getElementById("info-page").addEventListener("click", function() {window.location.href = "legal"});
+                </script>
+            </div>
+        </div>
+        <div class="solo-descript-site">
+			<div class="image-container">
+				<img src="/img/free.gif">
+			</div>
+			<div class="text-container">
+				<p>Gratuit éternellement, votre vie privée préservée sans compromis.</p>
+			</div>
+		</div>
+	</div>
+
+    <script src="api.js"></script>
+    <link rel="stylesheet" href="card.css">
+    <div class="all-card">
+    <div class="card-time">
+        <img class="img" src="img/time-left.png">
+
+        <g id="Layer_x0020_1">
+            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+            <g id="_1421394342400">
+            <g>
+                <polygon fill="#343434" fill-rule="nonzero" points="392.07,0 383.5,29.11 383.5,873.74 392.07,882.29 784.13,650.54"></polygon>
+                <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,0 -0,650.54 392.07,882.29 392.07,472.33"></polygon>
+                <polygon fill="#3C3C3B" fill-rule="nonzero" points="392.07,956.52 387.24,962.41 387.24,1263.28 392.07,1277.38 784.37,724.89"></polygon>
+                <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,1277.38 392.07,956.52 -0,724.89"></polygon>
+                <polygon fill="#141414" fill-rule="nonzero" points="392.07,882.29 784.13,650.54 392.07,472.33"></polygon>
+                <polygon fill="#393939" fill-rule="nonzero" points="0,650.54 392.07,882.29 392.07,472.33"></polygon>
+            </g>
+            </g>
+        </g>
+        <div class="textBox">
+        <p class="text-head">Temps restant<p>
+        <span class="title" id="countdown-title">Undefined</span>
+        <p class="text-time" id="countdown-time">Undefined</p>
+        </div>
+    </div>
+    <div class="card-time">
+        <img class="img" src="img/clock.png">
+        <g id="Layer_x0020_1">
+            <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+            <g id="_1421394342400">
+            <g>
+                <polygon fill="#343434" fill-rule="nonzero" points="392.07,0 383.5,29.11 383.5,873.74 392.07,882.29 784.13,650.54"></polygon>
+                <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,0 -0,650.54 392.07,882.29 392.07,472.33"></polygon>
+                <polygon fill="#3C3C3B" fill-rule="nonzero" points="392.07,956.52 387.24,962.41 387.24,1263.28 392.07,1277.38 784.37,724.89"></polygon>
+                <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,1277.38 392.07,956.52 -0,724.89"></polygon>
+                <polygon fill="#141414" fill-rule="nonzero" points="392.07,882.29 784.13,650.54 392.07,472.33"></polygon>
+                <polygon fill="#393939" fill-rule="nonzero" points="0,650.54 392.07,882.29 392.07,472.33"></polygon>
+            </g>
+            </g>
+        </g>
+        <div class="textBox">
+        <p class="text-head">Temps écoulée<p>
+        <span class="title" id="chrono-title">Undefined</span>
+        <p class="text-time" id="chrono-time">Undefined</p>
+        </div>
+    </div>
+    </div>
+
+	<style>
+		#donate-button-container {
+			max-width: 200px;
+			margin: auto;
+		}
+		#donate-button img {
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
+	<div id="donate-button-container">
+	<div id="donate-button"></div>
+		<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+	<script>
+		PayPal.Donation.Button({
+		env:'production',
+		hosted_button_id:'RVY96LLNV2WPA',
+		image: {
+			src:'https://pics.paypal.com/00/s/NzY5YmU1NzctNjBkMC00ZjVlLThmMTQtZGJlODg4ZGQ3ZWE5/file.PNG',
+			alt:'Bouton Faites un don avec PayPal',
+			title:'PayPal - The safer, easier way to pay online!',
+		}
+		}).render('#donate-button');
+	</script>
+	</div>
+
+	<footer>
+		<a href="/">Acceuil</a>
+		<a href="/ville/">Ville</a>
+		<a href="/legal/">Mentions-Légales</a>
+		<a href="/article/">Article</a>
+		<a href="/api/">API</a>
+		<p id="copy">Copyright &copy; 2023 - ____ NaviBus. All rights reserved.</p>
+	</footer>
+
+    <!-- Pop-Up Automatique -->
+    <script>
+        const modal = document.querySelector('.modal');
+
+        const close = document.querySelector('.close');
+
+        window.onload = function(){
+            setTimeout(function(){
+                modal.style.display = "block";
+            }, 500)
+        }
+    </script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

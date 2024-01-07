@@ -1,0 +1,143 @@
+/* Style page entière */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dddddd;
+    color: #333;
+}
+
+/* Style bandeau */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #2e3031;
+    color: #fff;
+}
+h1 {
+    text-align: center;
+    flex-grow: 1;
+}
+.logo-header {
+    cursor: pointer;
+    max-width: 80px;
+    height: auto;
+    margin-left: auto;
+}
+
+/* Style menu déroulant */
+#menuDeroulant {
+    margin: 20px;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: #333;
+    color: #fff;
+}
+#menuDeroulant option {
+    font-size: 1em;
+    background-color: #333;
+    color: #fff;
+}
+#monTitre {
+    text-align: center;
+    margin: 20px;
+    font-size: 1.5em;
+    color: #2e3031;
+}
+
+/* Style descriprion site (blabla) */
+.descript-site {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.solo-descript-site {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+.text-container, .image-container {
+    flex: 1;
+    text-align: center;
+}
+.text-container p {
+    margin: 0;
+    position: relative;
+    padding: 10px;
+    color: #333;
+    transition: color 0.5s;
+    cursor: pointer;
+}
+.text-container p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #333 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s;
+    z-index: -1;
+}
+.text-container p:hover {
+    color: #fff;
+}
+.text-container p:hover::before {
+    background-position: 0 0;
+}
+.image-container img {
+    width: 240px;
+    margin: 0;
+}
+.solo-descript-site .text-container, .solo-descript-site .image-container {
+    margin-left: 20px;
+}
+.solo-descript-site .text-container {
+    order: 2;
+    margin-right: 0;
+    margin-left: 20px;
+    font-size: 0.5cm;
+}
+.solo-descript-site .image-container {
+    order: 1;
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+/* Style pied de page */
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour téléphone */
+@media (max-width : 600px){
+    /* Enlève l'image */
+    .image-container{
+        display: none;
+    }
+}

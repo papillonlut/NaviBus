@@ -1,0 +1,83 @@
+.all-card {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-time {
+    width: 195px;
+    height: 285px;
+    background: rgba(51, 51, 51, 0.8);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    transition: 0.2s ease-in-out;
+    margin: 10px; /* Add margin between cards if desired */
+}
+
+.img {
+    height: 150px;
+    position: absolute;
+    transition: 0.2s ease-in-out;
+    z-index: 1;
+}
+
+.textBox {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.textBox .text-head, .textBox .title {
+    font-size: 20px;
+    font-weight: bold;
+    background: #333;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.textBox .text-time {
+    font-size: 20px;
+    background: #333;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.card-time:hover .textBox {
+    opacity: 1;
+}
+
+.card-time:hover .img {
+    filter: blur(7px);
+    animation: anim 3s infinite;
+}
+
+.card-time:hover {
+    transform: scale(1.04) rotate(5deg); /* Change rotation to 10 degrees */
+}
+
+@keyframes anim {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width : 600px){
+    .card-time:hover {
+        transform: scale(1); /* Change rotation to 10 degrees */
+    }
+}

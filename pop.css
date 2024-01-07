@@ -1,0 +1,112 @@
+.popup{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
+  z-index: 10;
+}
+.contentBox{
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+}
+.contentBox .imgBx{
+  position: relative;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contentBox .imgBx img{
+  position: relative;
+  max-width: 250px;
+  z-index: 1;
+}
+.contentBox .content{
+  position: relative;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.contentBox .content h3{
+  color: #333;
+  line-height: 1em;
+  font-weight: 300;
+  font-size: 3em;
+}
+.contentBox .content h4{
+  font-size: 2em;
+  color: #ff4d54;
+  line-height: 1em;
+}
+.contentBox .content h4 span{
+  color: #333;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+.contentBox .content p{
+  font-weight: 300;
+}
+.contentBox .content a{
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff4d54;
+  color: #fff;
+  margin-top: 15px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #f3f3f3 url(https://cdn-0.emojis.wiki/emoji-pics/messenger/cross-mark-messenger.png);
+  background-repeat: no-repeat;
+  background-size: 60px;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+@media (max-width : 767px){
+  .contentBox{
+    width: 300px;
+    height: auto;
+    flex-direction: column;
+  }
+  .contentBox .imgBx{
+    height: 200px;
+    transform: translateY(-50px);
+  }
+  .contentBox .imgBx ::before{
+    background: #fff;
+  }
+  .contentBox .content{
+    height: auto;
+    text-align: center;
+    padding-top: 0;
+  }
+  .close{
+    top: -50px;
+    right: -10px;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: center;
+  }
+}

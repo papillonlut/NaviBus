@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta name="theme-color" content="#2e3031">
+  <meta name="title" content="NaviBus - Article">
+  <meta name="description" content="NaviBus permet de fluidifier le trafic des transports en commun en vous indiquant les soucis sur le réseau">
+  <link rel="shortcut icon" href="\img\1.png" type="image/x-icon">
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://papillonlut.netlify.app/article/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="NaviBus - Article">
+	<meta property="og:description" content="NaviBus permet de fluidifier le traffic des transports en commun en vous indiquant les soucis sur les réseaux">
+	<meta property="og:image" content="https://papillonlut.netlify.app/img/1.png">
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="papillonlut.netlify.app">
+	<meta property="twitter:url" content="https://papillonlut.netlify.app/article/">
+	<meta name="twitter:title" content="NaviBus - Article">
+	<meta name="twitter:description" content="NaviBus permet de fluidifier le traffic des transports en commun en vous indiquant les soucis sur les réseaux">
+	<meta name="twitter:image" content="https://papillonlut.netlify.app/img/1.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/term.css">
+  <link rel="shortcut icon" href="..\img\1.png" type="image/x-icon">
+  <title>NaviBus - Article</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let url = "api.json";
+            fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    let container = document.getElementById("articleContainer");
+
+                    result.data.article.forEach(article => {
+                        let card = document.createElement("div");
+                        card.classList.add("card");
+
+                        let text = document.createElement("div");
+                        text.classList.add("text");
+
+                        let title = document.createElement("span");
+                        title.textContent = article.title;
+
+                        let subtitle = document.createElement("p");
+                        subtitle.classList.add("subtitle");
+                        subtitle.textContent = article.subtitle;
+
+                        text.appendChild(title);
+                        text.appendChild(subtitle);
+
+                        card.appendChild(text);
+
+                        let icons = document.createElement("div");
+                        icons.classList.add("icons");
+
+                        let btnFile = document.createElement("a");
+                        btnFile.classList.add("btn");
+                        btnFile.href = article.file;
+                        btnFile.setAttribute('download', article.file);
+                        btnFile.innerHTML = '<svg class="svg-icon" viewBox="0 0 20 20"><path d="M4.317,16.411c-1.423-1.423-1.423-3.737,0-5.16l8.075-7.984c0.994-0.996,2.613-0.996,3.611,0.001C17,4.264,17,5.884,16.004,6.88l-8.075,7.984c-0.568,0.568-1.493,0.569-2.063-0.001c-0.569-0.569-0.569-1.495,0-2.064L9.93,8.828c0.145-0.141,0.376-0.139,0.517,0.005c0.141,0.144,0.139,0.375-0.006,0.516l-4.062,3.968c-0.282,0.282-0.282,0.745,0.003,1.03c0.285,0.284,0.747,0.284,1.032,0l8.074-7.985c0.711-0.71,0.711-1.868-0.002-2.579c-0.711-0.712-1.867-0.712-2.58,0l-8.074,7.984c-1.137,1.137-1.137,2.988,0.001,4.127c1.14,1.14,2.989,1.14,4.129,0l6.989-6.896c0.143-0.142,0.375-0.14,0.516,0.003c0.143,0.143,0.141,0.374-0.002,0.516l-6.988,6.895C8.054,17.836,5.743,17.836,4.317,16.411"></path></svg>';
+
+                        let btnMore = document.createElement("a");
+                        btnMore.classList.add("btn");
+                        btnMore.onclick = openPopup;
+                        btnMore.innerHTML = '<svg y="0" xmlns="http://www.w3.org/2000/svg" x="0" width="100" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" height="100" class="svg-icon"><path stroke-width="8" stroke-linejoin="round" stroke-linecap="round" fill="none" d="M21.9,50h0M50,50h0m28.1,0h0M25.9,50a4,4,0,1,1-4-4A4,4,0,0,1,25.9,50ZM54,50a4,4,0,1,1-4-4A4,4,0,0,1,54,50Zm28.1,0a4,4,0,1,1-4-4A4,4,0,0,1,82.1,50Z"></path></svg>';
+
+                        icons.appendChild(btnFile);
+                        icons.appendChild(btnMore);
+
+                        card.appendChild(icons);
+
+                        container.appendChild(card);
+                    });
+                })
+                .catch(error => console.error('Erreur lors de la récupération des données:', error));
+        });
+    </script>
+</head>
+<body>
+  <header>
+    <a href="/"><img class="logo-header" src="/img/1.png" alt="Logo NaviBus"></a>
+    <h1>NaviBus - Article</h1>
+  </header>
+  <div class="overlay">
+    <div class="modal">
+        <div class="modal-container">
+            <div class="modal-container-header">
+                <span class="modal-container-title">
+                    <svg aria-hidden="true" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M14 9V4H5v16h6.056c.328.417.724.785 1.18 1.085l1.39.915H3.993A.993.993 0 0 1 3 21.008V2.992C3 2.455 3.449 2 4.002 2h10.995L21 8v1h-7zm-2 2h9v5.949c0 .99-.501 1.916-1.336 2.465L16.5 21.498l-3.164-2.084A2.953 2.953 0 0 1 12 16.95V11zm2 5.949c0 .316.162.614.436.795l2.064 1.36 2.064-1.36a.954.954 0 0 0 .436-.795V13h-5v3.949z" fill="currentColor"></path>
+                    </svg>
+                    Conditions d'Utilisation
+                </span>
+            </div>
+            <section class="modal-container-body rtf">
+                <span>Conditions d'Utilisation</span>
+                <p>En utilisant ce site, vous acceptez pleinement et sans réserve les conditions d'utilisation suivantes. Si vous n'acceptez pas ces conditions, le site vous seras refusez.</p>
+    
+                <span>Contenu du Site</span>
+                <p>Le contenu de ce site est fourni à des fins de prévention. Le propriétaire du site se réserve le droit de modifier, supprimer ou ajouter du contenu sans préavis.</p>
+    
+                <span>Propriété Intellectuelle</span>
+                <p>Tout le contenu présent sur ce site, y compris mais sans s'y limiter, les textes, images, vidéos, et logos, est la propriété intellectuelle du propriétaire du site, sauf indication contraire.</p>
+                <p>Aucun élément du site ne peut être reproduit, distribué, ou utilisé à des fins commerciales sans l'autorisation écrite préalable du propriétaire.</p>
+    
+                <span>Utilisation Responsable</span>
+                <p>Les utilisateurs s'engagent à utiliser ce site de manière responsable et à respecter les lois et règlements en vigueur.</p>
+                <p>Il est interdit de publier du contenu diffamatoire, offensant, illégal, ou contraire à l'éthique sur ce site.</p>
+                
+                <span>Liens Externes</span>
+                <p>Ce site peut contenir des liens vers des sites externes. Le propriétaire du site n'assume aucune responsabilité quant au contenu de ces sites et ne garantit pas leur exactitude ou leur pertinence.</p>
+                
+                <span>Collecte de Données</span>
+                <p>Lorsque cela est applicable, la collecte et l'utilisation des données personnelles sont régies par notre politique de confidentialité. En utilisant ce site, vous consentez à cette collecte et utilisation.</p>
+                <p>Heureusement notre site ne collecte aucune donnée.</p>
+                
+                <span>Responsabilité</span>
+                <p>Le propriétaire du site décline toute responsabilité pour tout dommage résultant de l'utilisation de ce site. Les utilisateurs utilisent ce site à leurs propres risques.</p>
+                
+                <span>Modification des Conditions</span>
+                <p>Le propriétaire se réserve le droit de modifier ces conditions d'utilisation à tout moment. Les utilisateurs sont invités à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications.</p>
+                
+                <span>Contact</span>
+                <p>En utilisant ce site, vous acceptez ces conditions d'utilisation. Si vous avez des questions ou des préoccupations, veuillez nous contacter à contact.papillonlut@gmail.com</p>
+    
+            </section>
+            <div class="modal-container-footer">
+                <button class="button is-ghost" id="quitterSite">Refuser</button>
+                <button class="button is-primary" onclick="document.querySelector('.modal').style.display = 'none'; document.querySelector('.overlay').style.display = 'none'">Accepter</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="articleContainer"></div>
+    
+<div class="sharepop"> 
+    <button type="button" class="sharedismiss" onclick="closePopup()">×</button> 
+    <div class="shareheader"> 
+        <div class="shareimage">
+            <img src="https://static-00.iconduck.com/assets.00/share-emoji-512x512-j2qmf7um.png" alt="Image partage">
+        </div> 
+        <div class="sharecontent">
+            <span class="sharetitle">Partager</span> 
+        <p class="sharemessage">Merci de vouloir partager notre actualité !</p> 
+        </div> 
+        <div class="shareactions">
+          <button type="button" class="discord" onclick="window.open('https://discord.com/', '_blank')"><strong>Discord</strong></button>
+          <button type="button" class="tiktok" onclick="window.open('https://tiktok.com/', '_blank')"><strong>TikTok</strong></button>
+          <button type="button" class="twitter" onclick="window.open('https://twitter.com/', '_blank')"><strong>Twitter</strong></button>
+          <button type="button" class="youtube" onclick="window.open('https://youtube.com/', '_blank')"><strong>YouTube</strong></button>
+        </div>
+    </div>
+</div>
+<script>
+    function openPopup() {
+        document.querySelector('.sharepop').style.display = 'flex';
+    }
+    function closePopup() {
+        document.querySelector('.sharepop').style.display = 'none';
+    }
+</script>
+<style>
+.sharepop {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    border-radius: 0.5rem;
+    max-width: 290px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sharedismiss {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: black;
+  border: 2px solid #D1D5DB;
+  font-size: 1rem;
+  font-weight: 300;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  transition: .3s ease;
+}
+.sharedismiss:hover {
+  background-color: #ee0d0d;
+  border: 2px solid #ee0d0d;
+  color: #fff;
+  cursor: pointer;
+}
+.shareheader {
+  padding: 1.25rem 1rem 1rem 1rem;
+}
+.shareimage {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #c3f6ff;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  animation: animate .6s linear alternate-reverse infinite;
+  transition: .6s ease;
+}
+.shareimage img {
+  width: 2rem;
+  height: 2rem;
+}
+.sharecontent {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.sharetitle {
+  color: #3ce2ff;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+.sharemessage {
+  margin-top: 0.5rem;
+  color: #595b5f;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.shareactions {
+  cursor: pointer;
+  margin: 0.75rem 1rem;
+}
+.youtube {
+    cursor: pointer;
+    display: inline-flex;
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    color: #242525;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    justify-content: center;
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid #D1D5DB;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.youtube:hover {
+  color: #dae0e0;
+  background-color: #ff2c2c;
+}
+.tiktok {
+  cursor: pointer;
+  display: inline-flex;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #242525;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #D1D5DB;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.tiktok:hover {
+  color: #dae0e0;
+  background-color: #FE2C55;
+}
+.twitter {
+  cursor: pointer;
+  display: inline-flex;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #242525;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #D1D5DB;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.twitter:hover {
+  color: #dae0e0;
+  background-color: #00acee;
+}
+.discord {
+  cursor: pointer;
+  display: inline-flex;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #242525;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #D1D5DB;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.discord:hover {
+  color: #dae0e0;
+  background-color: #5865F2;
+}
+@keyframes animate {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.09);
+  }
+}
+</style>
+
+  <style>
+      #donate-button-container {
+          max-width: 200px;
+          margin: auto;
+      }
+      #donate-button img {
+          max-width: 100%;
+          height: auto;
+      }
+  </style>
+  <div id="donate-button-container">
+    <div id="donate-button"></div>
+      <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+    <script>
+      PayPal.Donation.Button({
+        env:'production',
+        hosted_button_id:'RVY96LLNV2WPA',
+        image: {
+          src:'https://pics.paypal.com/00/s/NzY5YmU1NzctNjBkMC00ZjVlLThmMTQtZGJlODg4ZGQ3ZWE5/file.PNG',
+          alt:'Bouton Faites un don avec PayPal',
+          title:'PayPal - The safer, easier way to pay online!',
+        }
+      }).render('#donate-button');
+    </script>
+  </div>
+  <footer>
+		<a href="/">Acceuil</a>
+		<a href="/ville/">Ville</a>
+		<a href="/legal/">Mentions-Légales</a>
+		<a href="/article/">Article</a>
+		<a href="/api/">API</a>
+		<p id="copy">Copyright &copy; 2023 - ____ NaviBus. All rights reserved.</p>
+	</footer>
+  <script src="script.js"></script>
+</body>
+</html>

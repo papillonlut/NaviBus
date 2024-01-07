@@ -1,0 +1,60 @@
+/* Style page entière */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dddddd;
+    color: #333;
+}
+
+/* Style bandeau */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #2e3031;
+    color: #fff;
+}
+h1 {
+    text-align: center;
+    flex-grow: 1;
+}
+.logo-header {
+    cursor: pointer;
+    max-width: 80px;
+    height: auto;
+    margin-left: auto;
+}
+
+/* Contenu page */
+main {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Style pied de page */
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    cursor: default;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour téléphone */
+@media (max-width : 700px){
+    main {
+        margin: 10px;
+    }
+}

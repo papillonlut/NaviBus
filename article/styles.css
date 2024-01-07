@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style bandeau */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #2e3031;
+    color: #fff;
+}
+h1 {
+    text-align: center;
+    flex-grow: 1;
+}
+.logo-header {
+    cursor: pointer;
+    max-width: 80px;
+    height: auto;
+    margin-left: auto;
+}
+
+#articleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: calc(33.33% - 2%); /* 33.33% avec 2% d'espace entre les cartes */
+    max-width: 250px; /* Limite la largeur maximale à 250px */
+    height: 200px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.267);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3%; /* Ajout d'un espace en bas */
+}
+
+.card::before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -10%;
+    left: -5%;
+    border-radius: 50%;
+    border: 10px solid rgba(255, 255, 255, 0.219);
+    transition: all .8s ease;
+    filter: blur(.5rem);
+}
+
+.text {
+    flex-grow: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    color: rgba(27, 27, 27, 0.767);
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
+.subtitle {
+    font-size: .7em;
+    font-weight: 300;
+    color: rgba(27, 27, 27, 0.767);
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0px 0px 15px 15px;
+    overflow: hidden;
+    margin-top: auto;
+    padding: 0 15px;
+}
+
+.btn {
+    border: none;
+    width: 25%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.301);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; /* Bordures arrondies */
+    margin-right: 5px; /* Espacement du bord droit */
+}
+
+.btn1 {
+    border: none;
+    width: 25%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.301);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    border-radius: 8px; /* Bordures arrondies */
+    margin-right: 5px; /* Espacement du bord droit */
+}
+
+.svg-icon {
+    width: 25px;
+    height: 25px;
+    stroke: rgb(0, 0, 0);
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.562);
+}
+
+.card:hover::before {
+    width: 80px;
+    height: 80px;
+    top: -15%;
+    left: 50%;
+    filter: blur(0rem);
+}
+
+/* Style pied de page */
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media queries pour ajustements spécifiques à différents points de rupture */
+@media screen and (max-width: 1024px) {
+    .card {
+        width: calc(50% - 2%); /* Deux cartes par ligne avec 2% d'espace entre les cartes */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: calc(100% - 2%); /* Une carte par ligne avec 2% d'espace entre les cartes */
+    }
+}

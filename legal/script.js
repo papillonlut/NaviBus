@@ -1,0 +1,27 @@
+function rediriger() {
+    // Obtenez la valeur sélectionnée dans le menu déroulant
+    var selectedOption = document.getElementById("menuDeroulant").value;
+
+    // Redirigez vers la page sélectionnée ou appelez ajouterVille
+    if (selectedOption === "ajouterville") {
+        ajouterVille();
+    } else if (selectedOption) {
+        window.location.href = selectedOption;
+    }
+}
+
+var annee = new Date().getFullYear();
+var copy = document.getElementById("copy");
+copy.textContent = `Copyright © 2023 - ${annee} NaviBus. All rights reserved.`;
+
+document.addEventListener('DOMContentLoaded', function () {
+    var boutonQuitter = document.getElementById('quitterSite');
+
+    boutonQuitter.addEventListener('click', function () {
+        var confirmation = window.confirm("Êtes-vous sûr de vouloir quitter le site ?");
+        if (confirmation) {
+            window.alert("Merci de votre visite !");
+            window.location.href = "https://google.com";
+        }
+    });
+});
